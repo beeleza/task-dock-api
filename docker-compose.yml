@@ -1,0 +1,23 @@
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=senha123
+      - MONGO_INITDB_DATABASE=taskdock_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    restart: unless-stopped
+    networks:
+      - taskdock-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  taskdock-network:
+    driver: bridge
