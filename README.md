@@ -16,11 +16,15 @@
 
 ## 🧩 Architecture Overview
 
-The system is composed of modular services for scalability and maintainability:
+The system was developed with a modular architecture for better scalability and maintenance.
 
-- **Auth Module** → handles user registration and login
-- **Products Module** → manages product CRUD and affiliate links
-- **Categories Module** → provides color-coded grouping for products
+### Architecture Diagram
+
+<div align="center">
+  <img src="./public/architecture-diagram.png" alt="System Architecture Diagram" width="700" />
+</div>
+
+### Data Flow
 
 <div align="center">
   <img src="./public/diagram.png" alt="System Architecture Diagram" width="700" />
