@@ -1,27 +1,34 @@
 # 🧱 TaskDock API
 
-> 🚧 **Under Construction** 🚧
-> RESTful API developed using **Nodejs + Express**, responsible for managing user authentication and product CRUD operations. This project is part of the TaskDock system, a full-stack application containerized with **Docker**.
+> 🚧 **Em construção** 🚧
+> Uma API RESTful desenvolvida com Node.js e Express, responsável pela autenticação de usuários e operações de CRUD de produtos.
+Este serviço faz parte do TaskDock, um sistema full-stack totalmente conteinerizado com Docker.
 
-## 🚀 Technologies
+## 🚀 Tecnologias Utilizadas
 
-- **Node.js**
-- **Express.js**
-- **MongoDB**
-- **Mongoose**
-- **JWT**
-- **Docker & Docker Compose**
+- Node.js
+- Express.js
+- PostgreSQL
+- Sequelize ORM
+- JWT com HttpOnly Cookies
+- Docker & Docker Compose
+- Helmet + CORS
 
 ---
 
-## 🧩 Architecture Overview
+## 🧩 Arquitetura do Projeto
 
-The system was developed with a modular architecture for better scalability and maintenance.
+A API foi construída seguindo uma arquitetura em 3 camadas, garantindo organização, manutenção simples e baixo acoplamento:
 
-### Architecture Diagram
+- Routes → Roteamento da API
+- Controllers → Recebem requisições e enviam respostas
+- Services → Regras de negócio
+- Repositories → Acesso ao banco
 
 <div align="center">
   <img src="./public/architecture-diagram.v2.png" alt="System Architecture Diagram" width="700" />
+  <img width="700" height="901" alt="image" src="https://github.com/user-attachments/assets/f65e1d39-0396-4cc9-8691-644ff8c82887" />
+
 </div>
 
 ### Data Flow
