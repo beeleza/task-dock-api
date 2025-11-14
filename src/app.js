@@ -16,11 +16,13 @@ const PORT = process.env.PORT || 4000;
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
-ap.use(cookieParser());
+app.use(cookieParser());
 
 app.get("", (req, res) => {
   res.send("Hello world");
 });
+
+app.use("/api/v1/auth", require("./routes/authRoutes"));
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
