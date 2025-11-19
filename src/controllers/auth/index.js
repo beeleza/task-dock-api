@@ -63,4 +63,21 @@ module.exports = {
       res.status(500).json({ error: error.message });
     }
   },
+
+  /**
+   * Logout user
+   */
+  async logout(req, res) {
+    try {
+      res.clearCookie("token", {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+      });
+
+      res.json({ message: "Logout successful" });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
 };

@@ -16,7 +16,14 @@ class CategoryController {
    */
   async create(req, res) {
     try {
-      const category = await this.categoryService.createCategory(req.body);
+      const userId = req.user.id;
+
+      const categoryData = {
+        ...req.body,
+        userId: userId,
+      };
+
+      const category = await this.categoryService.createCategory(categoryData);
       res.status(201).json(category);
     } catch (error) {
       res.status(400).json({ error: error.message });

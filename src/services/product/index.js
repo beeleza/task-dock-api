@@ -17,7 +17,12 @@ class ProductService {
    */
   async createProduct(productData) {
     try {
-      if (!productData.name || !productData.price) {
+      if (
+        !productData.name ||
+        !productData.price ||
+        !productData.categoryId ||
+        !productData.userId
+      ) {
         throw new Error("Please fill in all required fields");
       }
       return await this.productRepository.create(productData);
@@ -34,7 +39,7 @@ class ProductService {
    * @returns {Promise<object>}
    */
   async getProductById(id) {
-    const product = await this.productRepository.getProductById(id);
+    const product = await this.productRepository.findById(id);
 
     if (!product) {
       throw new Error(`Product with ID ${id} not found`);

@@ -10,7 +10,14 @@ class ProductController {
    */
   async create(req, res) {
     try {
-      const product = await this.productService.createProduct(req.body);
+      const userId = req.user.id;
+
+      const productData = {
+        ...req.body,
+        userId: userId,
+      };
+
+      const product = await this.productService.createProduct(productData);
       res.status(201).json(product);
     } catch (error) {
       res.status(400).json({ error: error.message });
